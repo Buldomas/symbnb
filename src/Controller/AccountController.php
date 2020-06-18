@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -75,7 +76,9 @@ class AccountController extends AbstractController
     }
     /**
      * Permet d'afficher et de traiter le profile de l'utilisater User
-     *@Route("/account/profile", name="account_profile")
+     * @Route("/account/profile", name="account_profile")
+     * Vérifie que l'utilisateur est connecté
+     * @IsGranted("ROLE_USER")
      * @return Response
      */
     public function profile(Request $request, ManagerRegistry $managerRegistry)
@@ -101,7 +104,8 @@ class AccountController extends AbstractController
      * Permet de modifier le mot de passe.
      * 
      * @Route("/account/password-update", name="account_password")
-     * 
+     * Vérifie que l'utilisateur est connecté
+     * @IsGranted("ROLE_USER")
      * @return Response
      */
     public function updatePassword(Request $request, ManagerRegistry $managerRegistry, UserPasswordEncoderInterface $encoder)
@@ -142,7 +146,8 @@ class AccountController extends AbstractController
      * Permet d'afficher le profil de l'utilisateur connecté
      * 
      * @Route("/account", name="account_index")
-     *
+     * Vérifie que l'utilisateur est connecté
+     * @IsGranted("ROLE_USER")
      * @return Response
      */
     public function myAccount()

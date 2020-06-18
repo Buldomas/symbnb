@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Ad;
 use Faker\Factory;
+use App\Entity\Role;
 use App\Entity\User;
 use App\Entity\Image;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -21,6 +22,27 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $faker = Factory::create('Fr-fr');
+        // Gestion des Rôles
+        $adminRole = new Role();
+        $adminRole->setTitle('ROLE_ADMIN');
+        $manager->persist($adminRole);
+
+        $adminUser = new User();
+        $picture = 'https://randomuser.me/api/portraits/';
+        $pictureId = $faker->numberBetween(1, 99) . '.jpg';
+        $picture .= 'men/' . $pictureId;
+
+        $adminUser->setFirstName('Laurent')
+            ->setLastName('Soubigou')
+            ->setEmail('laurent.soubigou@gmail.com')
+            ->setHash($this->encoder->encodePassword($adminUser, 'password'))
+            ->setPicture($picture)
+            ->setIntroduction($faker->sentence())
+            ->setDescription('<p>' . join('</p><p>', $faker->paragraphs(3)) . '</p>')
+            ->setSlug("laurent-soubigou")
+            ->addUserRole($adminRole);
+        $manager->persist($adminUser);
+
         // Gestion des users
         $users = [];
         $genres = ['male', 'female'];
@@ -42,6 +64,7 @@ class AppFixtures extends Fixture
                 ->setIntroduction($faker->sentence())
                 ->setDescription('<p>' . join('</p><p>', $faker->paragraphs(3)) . '</p>')
                 ->setPicture($picture)
+                ->setSlug($user->getFirstName() . "-" . $user->getLastName())
                 ->setHash($hash);
 
             $manager->persist($user);
