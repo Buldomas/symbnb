@@ -19,17 +19,41 @@ class AdType extends ApplicationType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title', TextType::class, $this->getConfiguration('Titre', 'Saisissez le titre de l\'annonce'))
+            ->add(
+                'title',
+                TextType::class,
+                $this->getConfiguration('Titre', 'Saisissez le titre de l\'annonce')
+            )
             ->add(
                 'slug',
                 TextType::class,
                 $this->getConfiguration('Adresse Web', 'Adresse Web (automatique)', ['required' => false])
             )
-            ->add('coverImage', UrlType::class, $this->getConfiguration('Url de l\'image principale', 'Donnez une adresse !'))
-            ->add('introduction', TextType::class, $this->getConfiguration('Introduction', 'donnez une description globale de l\'annonce'))
-            ->add('content', TextareaType::class, $this->getConfiguration('Description détaillé', 'Tapez une description qui donne envie'))
-            ->add('rooms', IntegerType::class, $this->getConfiguration('Nombre de chambres', 'Nombre de chambres disponibles'))
-            ->add('price', MoneyType::class, $this->getConfiguration('Prix par nuit', 'Indiquez le prix par nuit'))
+            ->add(
+                'coverImage',
+                UrlType::class,
+                $this->getConfiguration('Url de l\'image principale', 'Donnez une adresse !')
+            )
+            ->add(
+                'introduction',
+                TextType::class,
+                $this->getConfiguration('Introduction', 'donnez une description globale de l\'annonce')
+            )
+            ->add(
+                'content',
+                TextareaType::class,
+                $this->getConfiguration('Description détaillé', 'Tapez une description qui donne envie')
+            )
+            ->add(
+                'rooms',
+                IntegerType::class,
+                $this->getConfiguration('Nombre de chambres', 'Nombre de chambres disponibles')
+            )
+            ->add(
+                'price',
+                MoneyType::class,
+                $this->getConfiguration('Prix par nuit', 'Indiquez le prix par nuit')
+            )
             ->add(
                 'images',
                 CollectionType::class,

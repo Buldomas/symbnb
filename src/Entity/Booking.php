@@ -33,13 +33,16 @@ class Booking
 
     /**
      * @ORM\Column(type="datetime")
-     * @Assert\GreaterThan("today", message="La date d'arrivée doit être ultérieure à aujourd'hui !")
+     * @Assert\GreaterThan("today",
+     *  message="La date d'arrivée doit être ultérieure à aujourd'hui !",
+     * groups={"Front"})
      */
     private $start_date;
 
     /**
      * @ORM\Column(type="datetime")
-     * @Assert\GreaterThan(propertyPath="start_date", message="La date de départ doit être supérieure à la date d'arrivée !")
+     * @Assert\GreaterThan(propertyPath="start_date",
+     *  message="La date de départ doit être supérieure à la date d'arrivée !")
      */
     private $endDate;
 
@@ -61,7 +64,8 @@ class Booking
     /**
      * Contrôle de la saisie
      * Callback appelé à la réservation
-     * @ORM\prePersist
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
      *
      * @return void
      */

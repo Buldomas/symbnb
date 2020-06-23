@@ -1,0 +1,47 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Administration des réservations !{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <h1 class="my-5 text-center">Administration des réservations</h1>
+    <table class="table table-over">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Visiteur</th>
+                <th>Créé le</th>
+                <th>Du</th>
+                <th>Au</th>
+                <th>Annonce</th>                
+                <th>Montant</th>
+                <th>Commentaires</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+    
+        <tbody>
+            {% for booking in bookings %}
+                <tr>
+                    <td>{{ booking.id }}</td>
+                    <td>
+                        <img src="{{booking.booker.picture}}" alt="Avatar de {{booking.booker.fullName}}" class="avatar avatar-mini mr-2">
+                        {{ booking.booker.fullName}}
+                    </td>
+                    <td>{{ booking.createdAt | date('d/m/Y') }}</td>
+                    <td>{{ booking.startDate | date('d/m/Y') }}</td>
+                    <td>{{ booking.endDate | date('d/m/Y') }}</td>
+                    <td>{{ booking.ad.title }}</td>
+                    <td>{{ booking.amount }}</td>
+                    <td>{{ booking.comment }}</td>
+                    <td>
+                        <a href="{{ path('admin_booking_edit',{'id':booking.id}) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                        <a href="{{ path('admin_booking_delete',{'id':booking.id}) }}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}
