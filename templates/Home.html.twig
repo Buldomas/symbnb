@@ -17,107 +17,31 @@
 		</div>
 	</div>
 
-	<h2 class="h1 my-5">Nos appartements stars</h2>
+	<h2 class="h1 my-5"><i class="fas fa-arrow-up"></i>	Le top 3 des annonces</h2>
 
 	<div class="row">
-		<div class="col-md-4">
-			<div class="card bf-light mb-3">
-				<div class="card-heaader text-center">
-					3 chambres, <strong>61&euro; / nuit</strong></br>
-					<small>Pas encore noté</small>
-				</div>
-
-				<img src="http://placehold.it/1000x400" alt="Image de l'appratement"
-				style="heifyt:200px; width: 100%; display: block">
-				<div class="card-body">
-					<h4 class="card-title">
-						Appartement extra !
-					</h4>
-					<p class="card-text">
-						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae deserunt dicta dolor saepe molestias blanditiis porro? Omnis impedit at maiores.
-					</p>
-					<a href="#" class="btn btn-secondary">En savoir plus</a>
-
-				</div>
-
-			</div>
-		</div>	
-		<div class="col-md-4">
-			<div class="card bf-light mb-3">
-				<div class="card-heaader text-center">
-					2 chambres, <strong>49&euro; / nuit</strong></br>
-					<small>Pas encore noté</small>
-				</div>
-
-				<img src="http://placehold.it/1000x400" alt="Image de l'appratement"
-				style="heifyt:200px; width: 100%; display: block">
-				<div class="card-body">
-					<h4 class="card-title">
-						Appartement extra !
-					</h4>
-					<p class="card-text">
-						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae deserunt dicta dolor saepe molestias blanditiis porro? Omnis impedit at maiores.
-					</p>
-					<a href="#" class="btn btn-secondary">En savoir plus</a>
-
-				</div>
-
-			</div>
-		</div>	
-		<div class="col-md-4">
-			<div class="card bf-light mb-3">
-				<div class="card-heaader text-center">
-					3 chambres, <strong>70&euro; / nuit</strong></br>
-					<small>Pas encore noté</small>
-				</div>
-
-				<img src="http://placehold.it/1000x400" alt="Image de l'appratement"
-				style="heifyt:200px; width: 100%; display: block">
-				<div class="card-body">
-					<h4 class="card-title">
-						Appartement extra !
-					</h4>
-					<p class="card-text">
-						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae deserunt dicta dolor saepe molestias blanditiis porro? Omnis impedit at maiores.
-					</p>
-					<a href="#" class="btn btn-secondary">En savoir plus</a>
-
-				</div>
-
-			</div>
-		</div>	
+		{% for data in ads %}
+			{% include 'ad/_ad.html.twig' with {'ad':data.annonce} %}
+		{% endfor %}
 	</div>
 
-	<h2 class="h1 my-4">Nos propriétaires stars</h2>
+	<h2 class="h1 my-4"><i class="fas fa-arrow-up"></i>	Le top 2 propriétaires</h2>
 
 	<div class="row">
+		{% for data in users %}
 		<div class="col">
 			<div class="card border-secondary mb-3">
 				<div class="card-body">
-					<h4 class="card-title">Laurent soubigou</h4>
+					<h4 class="card-title">{{data.user.fullName}}</h4>
 					<hr>
 					<div class="card-text">
-						<img src="http://placehold.it/64x64" alt="Avatar de laurent soubigou" class="float-left mr-3">
-						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et, deserunt!</p>
-						<a href="" class="btn btn-success float-right">En savoir plus</a>
+						<img src="{{data.user.picture}}" alt="Avatar de {{ data.user.fullName}}" class="float-left mr-3">
+						<p>{{ data.user.introduction }}</p>
+						<a href="{{ path('user_show', {'slug': data.user.slug}) }}" class="btn btn-success float-right">En savoir plus</a>
 					</div>
 				</div>
-				
 			</div>
 		</div>
-		<div class="col">
-			<div class="card border-secondary mb-3">
-				<div class="card-body">
-					<h4 class="card-title">Maëlle et Elsa soubigou</h4>
-					<hr>
-					<div class="card-text">
-						<img src="http://placehold.it/64x64" alt="Avatar de laurent soubigou" class="float-left mr-3">
-						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et, deserunt!</p>
-						<a href="" class="btn btn-success float-right">En savoir plus</a>
-					</div>
-				</div>
-				
-			</div>
-		</div>
+		{% endfor %}
 	</div>
 {% endblock %}

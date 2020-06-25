@@ -21,7 +21,7 @@ class PaginationService
         $this->manager      = $managerRegistry->getManager();
         $this->twig         = $twig;
         $this->route        = $request->getCurrentRequest()->attributes->get('_route');
-        $this->templatePath = $templatePath
+        $this->templatePath = $templatePath;
     }
 
     public function setTemplatePath($templatePath)
@@ -53,7 +53,7 @@ class PaginationService
     }
     public function getData()
     {
-        if(empty($this->entityClass)) {
+        if (empty($this->entityClass)) {
             throw new \Exception("Vous n'avez pas spécifié l'entity sur laquelle nous devons paginer.
              Utiliser la méthode setEntityClass() de votre objet PaginationService !");
         }
@@ -71,7 +71,7 @@ class PaginationService
             throw new \Exception("Vous n'avez pas spécifié l'entity sur laquelle nous devons paginer.
              Utiliser la méthode setEntityClass() de votre objet PaginationService !");
         }
-    
+
         $repo = $this->manager->getRepository($this->entityClass);
         $total = count($repo->findAll());
         $pages = ceil($total / $this->limit);
