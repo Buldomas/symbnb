@@ -5,7 +5,7 @@ doctrine_migrations:
   #namespace: DoctrineMigrations
 
   #name: "%kernel.project_dir%/src/Migrations"
-  #migrations_namespace: "DoctrineMigrations"
+  migrations_namespace: "DoctrineMigrations"
   #executed_at_column_name: "executed_at"
   #migrations_directory: "/data/doctrine/migrations-docs-example/lib/MyProject/Migrations"
   migrations_paths:
