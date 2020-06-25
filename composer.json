@@ -80,7 +80,7 @@
 			"@auto-scripts"
 		],
 		"compile": [
-			"php bin/console doctrine:migrations:version -add -add"
+			"php bin/console doctrine:migrations"
 		]
 	},
 	"conflict": {
