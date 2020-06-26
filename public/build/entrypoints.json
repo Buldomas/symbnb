@@ -1,8 +1,34 @@
 {
-	"entrypoints": {
-		"app": {
-			"js": ["/build/runtime.js", "/build/css/app.js", "/build/app.js"],
-			"css": ["/build/css/app.css"]
-		}
-	}
+  "entrypoints": {
+    "app": {
+      "js": [
+        "/build/runtime.js",
+        "/build/app~app/css~css/app.js",
+        "/build/app.js"
+      ],
+      "css": [
+        "/build/app~app/css~css/app.css"
+      ]
+    },
+    "app/css": {
+      "js": [
+        "/build/runtime.js",
+        "/build/app~app/css~css/app.js",
+        "/build/app/css.js"
+      ],
+      "css": [
+        "/build/app~app/css~css/app.css"
+      ]
+    },
+    "css/app": {
+      "js": [
+        "/build/runtime.js",
+        "/build/app~app/css~css/app.js",
+        "/build/css/app.js"
+      ],
+      "css": [
+        "/build/app~app/css~css/app.css"
+      ]
+    }
+  }
 }
