@@ -33,14 +33,14 @@
 		"symfony/twig-pack": "*",
 		"symfony/validator": "5.1.*",
 		"symfony/web-link": "5.1.*",
+		"symfony/webpack-encore-bundle": "^1.7",
 		"symfony/yaml": "5.1.*"
 	},
 	"require-dev": {
 		"symfony/debug-pack": "*",
 		"symfony/maker-bundle": "^1.0",
 		"symfony/profiler-pack": "*",
-		"symfony/test-pack": "*",
-		"symfony/webpack-encore-bundle": "^1.7"
+		"symfony/test-pack": "*"
 	},
 	"config": {
 		"optimize-autoloader": true,
