@@ -1,0 +1,6 @@
+{
+	"build/app.js": "/build/app.js",
+	"build/css/app.css": "/build/css/app.css",
+	"build/css/app.js": "/build/css/app.js",
+	"build/runtime.js": "/build/runtime.js"
+}
