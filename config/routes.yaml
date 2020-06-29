@@ -4,3 +4,6 @@
 homepage:
   path: /
   controller: App\Controller\HomeController::home
+index:
+  path: /
+  controller: App\Controller\HomeController::home
