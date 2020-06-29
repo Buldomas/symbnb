@@ -16,7 +16,6 @@ class HomeController extends AbstractController
      */
     public function home(AdRepository $adRepo, UserRepository $userRepository)
     {
-        $prenoms = ["Lior" => 31, "Joseph" => 12, "Anne" => 55];
         return $this->render(
             'home.html.twig',
             [
