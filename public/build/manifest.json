@@ -1,8 +1,6 @@
 {
-  "build/app.js": "/build/app.js",
-  "build/app/css.js": "/build/app/css.js",
-  "build/app~app/css~css/app.css": "/build/app~app/css~css/app.css",
-  "build/app~app/css~css/app.js": "/build/app~app/css~css/app.js",
-  "build/css/app.js": "/build/css/app.js",
-  "build/runtime.js": "/build/runtime.js"
+	"build/app.js": "/build/app.js",
+	"build/app/css.js": "/build/app/css.js",
+	"build/css/app.js": "/build/css/app.js",
+	"build/runtime.js": "/build/runtime.js"
 }
