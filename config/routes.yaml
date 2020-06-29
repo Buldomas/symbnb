@@ -1,6 +1,6 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
-index:
+homepage:
   path: /
-  controller: App\Controller\HomeController.php
+  controller: App\Controller\HomeController::home
