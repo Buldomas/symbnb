@@ -3,8 +3,8 @@
 	{
 		/***/ "./assets/js/app.js":
 			/*!**************************!*\
-  !*** ./assets/js/app.js ***!
-  \**************************/
+  		!*** ./assets/js/app.js ***!
+  		\**************************/
 			/*! no exports provided */
 			/***/ function (module, __webpack_exports__, __webpack_require__) {
 				"use strict";
