@@ -1,9 +1,3 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
-#homepage:
-#  path: /
-#  controller: App\Controller\HomeController::home
-#index:
-#  path: /
-#  controller: App\Controller\HomeController::home

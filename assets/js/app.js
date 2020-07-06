@@ -11,5 +11,8 @@ import "../css/bootstrap.min.css";
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 // import $ from 'jquery';
+//var $ = require("jquery");
+//require("./popper.min.js");
+//require("./bootstrap.min.js");
 
 console.log("Hello Webpack Encore! Edit me in assets/js/app.js");
