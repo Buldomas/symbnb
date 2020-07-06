@@ -12,7 +12,10 @@ class HomeController extends AbstractController
 {
     /**
      * @Route("/", name="homepage")
-     *
+     * 
+     * @param AdRepository $adRepo
+     * @param UserRepository $userRepository
+     * @return Response
      */
     public function home(AdRepository $adRepo, UserRepository $userRepository)
     {
