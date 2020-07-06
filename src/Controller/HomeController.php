@@ -20,6 +20,10 @@ class HomeController extends AbstractController
     public function home(AdRepository $adRepo, UserRepository $userRepository)
     {
         return $this->render(
+            'home.html.twig'
+        );
+        /*
+        return $this->render(
             'home.html.twig',
             [
                 'controller_name' => 'HomeController',
@@ -27,5 +31,6 @@ class HomeController extends AbstractController
                 'users' => $userRepository->findBestUsers(2)
             ]
         );
+        */
     }
 }
